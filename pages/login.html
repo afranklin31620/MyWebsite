@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <div class="login_box">
+        <h1><em>Login</em></h1>
+        <form method="post" id="form_data">
+            <label for="username" class="form_lbl" id="username_lbl"><em>Username</em></label>
+            <input type="text" id="username" name="username">
+            <label for="password" class="form_lbl" id="password_lbl"><em>Password</em></label>
+            <input type="password" id="password" name="password">
+            <button id="login_btn" type="submit">
+                <h2>Login</h2>
+            </button>
+        </form>
+    </div>
+    <script>
+        const form = document.getElementById("form_data")
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const form_data = new FormData(event.target)
+            const form_data_obj = Object.fromEntries(form_data.entries())
+            console.log(form_data_obj)
+        })
+    </script>
+</body>
+
+</html>

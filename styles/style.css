@@ -1,0 +1,58 @@
+h1 {
+    text-align: center;
+    color: white;
+}
+
+.login_box {
+    border-width: 2px;
+    width: 40pc;
+    height: 40pc;
+    border-radius: 10%;
+    border-style: solid;
+    border-color: rgb(95, 94, 94);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+body {
+    width: 100%;
+    background: linear-gradient(to top, rgb(26, 25, 25), black);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+
+.form_lbl {
+    display: flex;
+    padding: 5%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    color: rgb(0, 255, 140);
+    margin-top: 10%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#username,
+#password {
+    min-width: 15vw;
+    font-size: 1em;
+    min-height: 4vh;
+    background-color: gray;
+    color: white;
+    margin-top: 10%;
+}
+
+#login_btn {
+    color: aqua;
+    background-color: black;
+    border: 1px solid aqua;
+    border-radius: 10%;
+    display: flex;
+    margin: auto;
+    margin-top: 10%;
+}
