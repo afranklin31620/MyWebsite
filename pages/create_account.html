@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../styles/create_account.css">
+</head>
+
+<body>
+    <div id="create_account_section">
+        <h1>Account Information</h1>
+        <form id="create_account_form" method="post">
+            <label for="email" id="email_lbl">Enter Email</label>
+            <input type="text" value="john.smith@emaildomain.com" name="email" id="email_input">
+            <button id="submit_email" type="submit">Create Account</button>
+        </form>
+    </div>
+    <script>
+        const email_form = document.getElementById("create_account_form");
+        email_form.addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const email_content = new FormData(event.target);
+            const email_data = Object.fromEntries(email_content.entries());
+            const email_value = email_data['email'];
+            const email_regex = new RegExp("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", "i");
+            if (email_value.match(email_regex)) {
+                const input_data = JSON.stringify({ "email": email_value });
+                const req = await fetch("http://127.0.0.1:1234/create_account",
+                    {
+                        "method": "POST", "body": JSON.stringify(email_data), headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }
+                )
+                const res = await req.json();
+                console.log(res);
+            }
+            else {
+                alert("Email is not valid!")
+            }
+        })
+
+        let email_input = document.getElementById("email_input");
+        email_input.onclick = () => {
+            if (email_input.value === "john.smith@emaildomain.com") {
+                email_input.value = ""
+            }
+        }
+        email_input.onblur = () => {
+            if (email_input.value === "") {
+                email_input.value = "john.smith@emaildomain.com"
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+body {
+    background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(7, 1, 71));
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+#create_account_section {
+    border: 2px solid transparent;
+    width: 40vw;
+    height: 60vh;
+    border-radius: 2%;
+    background-image:
+        linear-gradient(to bottom, rgb(0, 0, 0), rgb(7, 1, 71)),
+        linear-gradient(to left, rgb(255, 0, 0), rgb(21, 0, 255));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    margin: 10% auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#create_account_section h1 {
+    text-align: center;
+    color: rgb(42, 140, 102);
+}
