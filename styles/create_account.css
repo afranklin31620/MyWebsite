@@ -2,9 +2,11 @@ body {
     background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(7, 1, 71));
     background-repeat: no-repeat;
     height: 100vh;
+
 }
 
-#create_account_section {
+#create_account_section,
+#verify_code_section {
     border: 2px solid transparent;
     width: 40vw;
     height: 60vh;
@@ -15,11 +17,55 @@ body {
     background-origin: border-box;
     background-clip: padding-box, border-box;
     margin: 10% auto;
+    justify-content: flex-start;
+    align-items: center;
     display: flex;
     flex-direction: column;
-}
-
-#create_account_section h1 {
     text-align: center;
     color: rgb(42, 140, 102);
+}
+
+
+
+#create_account_form {
+    width: 100%;
+}
+
+#email_input,
+#code_id {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    width: 60%;
+    height: 20%;
+    border-radius: 10%;
+    background: rgba(255, 255, 255, 0.17);
+    font-size: xx-large;
+    color: aliceblue;
+}
+
+#email_lbl,
+#validation_code_lbl {
+    font-size: 180%;
+}
+
+#submit_email,
+#verify_code {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    width: 30%;
+    height: 10%;
+    border-radius: 10%;
+    background: rgba(255, 255, 255, 0.17);
+    font-size: small;
+    color: aliceblue;
+}
+
+#submit_email:hover,
+#verify_code:hover {
+    color: rgb(195, 0, 255);
+}
+
+#submit_email:active,
+#verify_code:active {
+    color: rgb(0, 255, 26);
 }

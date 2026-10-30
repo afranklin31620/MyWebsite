@@ -12,13 +12,27 @@
     <div id="create_account_section">
         <h1>Account Information</h1>
         <form id="create_account_form" method="post">
-            <label for="email" id="email_lbl">Enter Email</label>
+            <label for="email" id="email_lbl"><strong>Enter Email</strong></label>
+            <br>
             <input type="text" value="john.smith@emaildomain.com" name="email" id="email_input">
+            <br>
             <button id="submit_email" type="submit">Create Account</button>
         </form>
     </div>
+    <div id="verify_code_section" style="display: none;">
+        <form id="confirm_id" method="post">
+            <label for="validation_code" id="validation_code_lbl">Enter verification code</label>
+            <br>
+            <input type="text" name="validation_code" value="123456" id="code_id">
+            <br>
+            <button id="verify_code">Verify</button>
+        </form>
+    </div>
     <script>
+        const email_box = document.getElementById("create_account_section");
         const email_form = document.getElementById("create_account_form");
+        const verify_form = document.getElementById("verify_code_section")
+
         email_form.addEventListener('submit', async function (event) {
             event.preventDefault();
             const email_content = new FormData(event.target);
@@ -35,7 +49,8 @@
                     }
                 )
                 const res = await req.json();
-                console.log(res);
+                email_box.style.display = "none";
+                verify_form.style.display = "flex";
             }
             else {
                 alert("Email is not valid!")
@@ -53,6 +68,22 @@
                 email_input.value = "john.smith@emaildomain.com"
             }
         }
+
+        const myCode = document.getElementById("code_id")
+        verify_form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            const form_data = new FormData(event.target);
+            const obj = Object.fromEntries(form_data.entries());
+            const req = await fetch("http://127.0.0.1:1234/verify_code", {
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": JSON.stringify(obj)
+            })
+            const res = await req.json()
+            console.log(res)
+        })
     </script>
 </body>
 
